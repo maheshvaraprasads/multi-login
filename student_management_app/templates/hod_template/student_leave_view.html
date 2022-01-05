@@ -1,0 +1,61 @@
+{% extends 'hod_template/base_template.html' %}
+
+{% block page_title %}
+    Leave Apply by Students
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Image Uploaded by Students</h3>
+                        </div>
+                        <!-- /.card-header -->
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Student Image</th>
+                                </tr>
+                                </thead>
+
+                                {% for leave in leaves %}
+                                <tbody>
+                                <tr>
+                                    <td>{{ leave.id }}</td>
+                                    <td>{{ leave.student_id.admin.email }} /<img src="{{ leave.leave_date }}" style="width: 100px;" /></td> 
+                                </tr>
+                                </tbody>
+                                {% endfor %}
+
+                            </table>
+                        </div>
+                    
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+      
+
+  {% endblock main_content %}
+
+  {% comment %} Custom JS to Identify the Reply and Post Reply {% endcomment %}
+
+  {% block custom_js %}
+
+  {% endblock custom_js %}
